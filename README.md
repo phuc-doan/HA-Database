@@ -555,7 +555,7 @@ Chức năng này gọi là thiếu đồng bộ. Vì dữ liệu cập nhật �
 <li>***Chức năng tiền đồng bộ*** - Synchronous (PostgreSQL 9.1) </li>
 Tiến bộ hơn chức năng Asynchronous, ở chế độ Synchronous Standby Server gửi thông điệp thành công tới Master Server sau khi xác nhận đã nhận được thông tin WAL(Transaction log). Sau khi nhận được được thông điệp từ Standby Server, Master kết thúc xử lý cập nhật dữ liệu. Như vậy sau khi cập nhật dữ liệu ở Master Sever, phải chờ một chút thời gian (thường thì khoảng vài micro giây) để Standby phản ánh (recovery) dữ liệu đó từ WAL vừa nhận được. Nhưng có vấn đề là việc phản ánh dữ liệu mất thời gian nên sau khi kết thúc câu lệnh, dữ liệu có thể vẫn chưa được cập nhật tại Standby.
 Chia tiết về quá trình đồng bộ xem hình bên dưới.
-![](imgs/20180507-000233.png)
+![image](https://user-images.githubusercontent.com/83824403/165023061-c335209f-4cf0-42b4-8b40-7bb052dc727e.png)
 
 <li>***Chức năng Full Synchronous*** </li>
 Cải tiến nhược điểm của chức năng synchronous, ở chức năng này sau khi kết thúc câu lệnh cập nhật dữ liệu ở Master Server, có thể đảm bảo là dữ liệu sẽ chắc chắn đã được cập nhật ở Standby Server.
